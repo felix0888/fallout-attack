@@ -26,6 +26,14 @@ describe("Fallout", function() {
     });
   });
 
+  describe("#Fal1out", function() {
+    it("should set the owner and allocations", async function() {
+      await fallout.Fal1out({ value: 100 });
+      expect(await fallout.owner()).to.equal(owner.address);
+      expect(await fallout.allocatorBalance(owner.address)).to.equal(100);
+    });
+  });
+
   describe("#allocate, #sendAllocation, #allocatorBalance", function() {
     it("should update/return allocations variable", async function() {
       await fallout.allocate({ value: 10 });
