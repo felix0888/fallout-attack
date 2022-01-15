@@ -13,6 +13,11 @@ async function main() {
   const fallout = await Fallout.deploy();
   console.log("Fallout address: ", await fallout.address);
   console.log("Account balance after Fallout deploy: ", (await deployer.getBalance()).toString());
+
+  const FalloutAttack = await ethers.getContractFactory("FalloutAttack");
+  const falloutAttack = await FalloutAttack.deploy();
+  console.log("FalloutAttack address: ", await falloutAttack.address);
+  console.log("Account balance after FalloutAttack deploy: ", (await deployer.getBalance()).toString());
 }
 
 main()
